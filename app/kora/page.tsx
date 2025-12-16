@@ -1050,7 +1050,7 @@ export default async function KoraPage({
 	            <div className="flex items-start justify-between gap-4">
 	              <div>
 	                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Kora Local</p>
-	                <p className="mt-1 text-lg font-semibold text-slate-100">$9 / month</p>
+	                <p className="mt-1 text-lg font-semibold text-slate-100">$14 / month</p>
 	                <p className="mt-1 text-sm text-slate-300">
 	                  Replace your basic stack with a private, offline-first creator system.
 	                </p>
