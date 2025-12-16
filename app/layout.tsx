@@ -41,12 +41,15 @@ export default function RootLayout({
               <Link href="/kora" className="hover:text-emerald-300">
                 Kora
               </Link>
+              <Link href="/export-flow" className="hover:text-emerald-300">
+                Export Flow
+              </Link>
               <Link href="/key-shift-pro" className="hover:text-emerald-300">
                 Key Shift Pro
               </Link>
-              <a href="#contact" className="hidden hover:text-emerald-300 sm:inline">
+              <Link href="/contact" className="hidden hover:text-emerald-300 sm:inline">
                 Contact
-              </a>
+              </Link>
             </nav>
           </header>
 

@@ -13,20 +13,36 @@ export default function HomePage() {
           </div>
 
           <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-[3.2rem]">
-            Focused tools for{" "}
+            Kora is{" "}
             <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-sky-300 bg-clip-text text-transparent">
-              cutting-edge creative work
+              the operating system for music creators
             </span>
             .
           </h1>
 
           <p className="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
-            Soniteq builds AI-powered tools that remove friction from the
-            creative process. From planning your week of projects with{" "}
-            <span className="font-semibold">Kora</span> to exporting multi-key
-            audio deliverables with <span className="font-semibold">Key Shift Pro</span>,
-            we help you keep momentum where it matters.
+            Kora isn’t a replacement for macOS or Windows. It’s the system that organizes and runs your creative work. Plan albums like real deliverables, monitor important relationships, and ship faster with fewer
+            mistakes. Local-first and creator-first by design. No AI Training, no data mining — your work stays yours. Always.
           </p>
+
+          <ul className="mt-5 space-y-2 text-sm text-slate-200">
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+              <span>Dashboard with real-time urgency weighting. Prioritize what matters in the moment.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+              <span>Organize and stay-on-top of all of your DAW project files, exports, and deliverables. Linked automatically.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+              <span>Prep and plan albums. Ship faster with fewer mistakes.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-6 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+              <span>AI helps you plan and prioritize your creative work. AI drives your career forward, not replace you.</span>
+            </li>
+          </ul>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
@@ -34,6 +50,12 @@ export default function HomePage() {
               className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-slate-950 shadow-xl shadow-emerald-400/40 hover:bg-emerald-300"
             >
               Explore Kora
+            </Link>
+            <Link
+              href="/export-flow"
+              className="inline-flex items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/60 px-6 py-2 text-sm font-semibold text-slate-100 hover:border-emerald-400/70 hover:text-emerald-200"
+            >
+              See Export Flow
             </Link>
             <Link
               href="/key-shift-pro"
@@ -44,8 +66,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-4 text-xs text-slate-400 sm:text-[13px]">
-            Start small with one tool, or build a workflow that runs across your
-            projects and deliverables.
+            Export Flow is the premium delivery system. Key Shift Pro is the special weapon for niche all-key exports. Get them both bundled with Kora Creator or Pro
           </p>
         </div>
 
@@ -64,7 +85,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
-                  2 products · Growing roadmap
+                  3 products · Growing roadmap
                 </span>
               </div>
             </div>
@@ -77,11 +98,10 @@ export default function HomePage() {
                       Kora
                     </p>
                     <p className="mt-1 text-[13px] font-medium text-slate-100">
-                      AI-backed project planner
+                      Operating system for music creators
                     </p>
                     <p className="text-[11px] text-slate-400">
-                      Auto-prioritized “Top 3 Today”, deadlines & context from
-                      your real projects.
+                      Deliverables-first planning, relationship follow-ups, and a realistic “Top 3 Today”.
                     </p>
                   </div>
                   <Link
@@ -101,14 +121,37 @@ export default function HomePage() {
                       Key Shift Pro
                     </p>
                     <p className="mt-1 text-[13px] font-medium text-slate-100">
-                      Multi-key export engine
+                      Special weapon for niche exports
                     </p>
                     <p className="text-[11px] text-slate-400">
-                      Turn one mix into all-key deliverables with clean filenames.
+                      Sound designers: turn one mix into deliverable-ready all-key exports.
                     </p>
                   </div>
                   <Link
                     href="/key-shift-pro"
+                    className="rounded-full border border-slate-700/80 px-3 py-1 text-[11px] font-semibold text-slate-200 hover:border-emerald-400/70 hover:text-emerald-200"
+                  >
+                    View
+                  </Link>
+                </div>
+              </div>
+
+              {/* Export Flow preview row */}
+              <div className="rounded-2xl border border-slate-800/80 bg-slate-900/70 p-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                      Export Flow
+                    </p>
+                    <p className="mt-1 text-[13px] font-medium text-slate-100">
+                      Premium delivery system
+                    </p>
+                    <p className="text-[11px] text-slate-400">
+                      Metadata, filename rules, batch export automation, and HQ file conversions.
+                    </p>
+                  </div>
+                  <Link
+                    href="/export-flow"
                     className="rounded-full border border-slate-700/80 px-3 py-1 text-[11px] font-semibold text-slate-200 hover:border-emerald-400/70 hover:text-emerald-200"
                   >
                     View
@@ -123,6 +166,7 @@ export default function HomePage() {
                 </p>
                 <ul className="mt-2 space-y-1.5 text-[11px] text-slate-300">
                   <li>• Tools that feel native to creative workflows.</li>
+                  <li>• Creator-first AI policy (your data stays yours).</li>
                   <li>• Informed defaults, flexible details.</li>
                   <li>• No endless bloat – just what earns back hours.</li>
                 </ul>
@@ -138,12 +182,11 @@ export default function HomePage() {
           Products
         </h2>
         <p className="mt-3 max-w-2xl text-sm text-slate-300">
-          Each Soniteq product aims at a specific bottleneck in the creative
-          process. Start with the one that solves today&apos;s pain and add more
-          as your workflow grows.
+          Save countless hours with Kora as your operating system, add Export Flow when delivery quality matters, and pull out Key Shift
+          Pro for powerful all-key export workflows.
         </p>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           {/* Kora card */}
           <div className="flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5">
             <div className="flex items-center justify-between gap-3">
@@ -152,7 +195,7 @@ export default function HomePage() {
                   Kora
                 </p>
                 <p className="mt-1 text-sm font-medium text-slate-100">
-                  AI productivity planner for creative projects
+                  The operating system for music creators
                 </p>
               </div>
               <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-[11px] text-emerald-200">
@@ -160,17 +203,15 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-3 text-sm text-slate-300">
-              Kora turns your scattered tasks, album briefs, and project notes
-              into a focused “Today” plan. Automatically surfaces your top 3
-              priorities, flags label deadlines, and keeps publisher projects
-              front and center.
+              Plan albums like deliverables, track real-world deadlines, and keep relationships warm with automatic
+              follow-ups — while staying local-first and creator-first.
             </p>
             <div className="mt-4 flex gap-2 text-[11px] text-slate-400">
               <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1">
-                AI-assisted prioritization
+                Deliverables-first planning
               </span>
               <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1">
-                Project + track level
+                Follow-ups + relationships
               </span>
             </div>
             <div className="mt-5">
@@ -179,6 +220,43 @@ export default function HomePage() {
                 className="inline-flex items-center text-sm font-semibold text-emerald-300 hover:text-emerald-200"
               >
                 Learn more about Kora →
+              </Link>
+            </div>
+          </div>
+
+          {/* Export Flow card */}
+          <div className="flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.2em] text-emerald-300 uppercase">
+                  Export Flow
+                </p>
+                <p className="mt-1 text-sm font-medium text-slate-100">
+                  The premium delivery system for exports
+                </p>
+              </div>
+              <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-[11px] text-emerald-200">
+                New
+              </span>
+            </div>
+            <p className="mt-3 text-sm text-slate-300">
+              Metadata templates, filename rule logic, batch export automation, and HQ file conversions — built for calm,
+              repeatable delivery.
+            </p>
+            <div className="mt-4 flex gap-2 text-[11px] text-slate-400">
+              <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1">
+                Metadata + filenames
+              </span>
+              <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1">
+                Batch recipes + conversions
+              </span>
+            </div>
+            <div className="mt-5">
+              <Link
+                href="/export-flow"
+                className="inline-flex items-center text-sm font-semibold text-emerald-300 hover:text-emerald-200"
+              >
+                Learn more about Export Flow →
               </Link>
             </div>
           </div>
@@ -199,9 +277,8 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-3 text-sm text-slate-300">
-              Built for trailer composers and sound designers who deliver hits,
-              risers, and cues in multiple keys. Detects key, shifts with
-              quality, and names files the way publishers expect.
+              The special weapon for niche workflows: sound designers and power users exporting deliverable-ready mixes
+              in multiple keys. Detects key, shifts with quality, and names files the way publishers expect.
             </p>
             <div className="mt-4 flex gap-2 text-[11px] text-slate-400">
               <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1">
