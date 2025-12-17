@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import AuthHandoff from "./AuthHandoff";
 
 export const metadata: Metadata = {
   title: "Soniteq – Tools for Modern Creators",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
+        <AuthHandoff />
         {/* background aura */}
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-emerald-500/20 via-cyan-500/10 to-transparent blur-3xl" />
 

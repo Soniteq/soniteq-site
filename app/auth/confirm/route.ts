@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import type { EmailOtpType } from "@supabase/auth-js";
 
 export const runtime = "nodejs";
 
@@ -34,7 +35,18 @@ function getSafeRedirectTarget(raw: string | null): string {
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const token_hash = url.searchParams.get("token_hash");
-  const type = url.searchParams.get("type") || "magiclink";
+  const requestedType = url.searchParams.get("type") || "magiclink";
+  const allowedTypes: ReadonlySet<EmailOtpType> = new Set([
+    "magiclink",
+    "signup",
+    "invite",
+    "recovery",
+    "email_change",
+    "email",
+  ]);
+  const type: EmailOtpType = allowedTypes.has(requestedType as EmailOtpType)
+    ? (requestedType as EmailOtpType)
+    : "magiclink";
   const redirect_to = getSafeRedirectTarget(url.searchParams.get("redirect_to"));
 
   if (!token_hash) {
@@ -51,7 +63,7 @@ export async function GET(req: Request) {
 
   const { data, error } = await supabase.auth.verifyOtp({
     token_hash,
-    type: type as any,
+    type,
   });
 
   if (error || !data?.session) {
@@ -74,4 +86,3 @@ export async function GET(req: Request) {
 
   return NextResponse.redirect(`${redirect_to}#${fragment}`, { status: 302 });
 }
-
