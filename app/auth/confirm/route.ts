@@ -4,8 +4,17 @@ import type { EmailOtpType } from "@supabase/auth-js";
 
 export const runtime = "nodejs";
 
+function getSuccessRedirect(baseUrl: string, deepLink?: string): string {
+  const successUrl = new URL("/success", baseUrl);
+  if (deepLink) {
+    successUrl.searchParams.set("deep_link", deepLink);
+  }
+  return successUrl.toString();
+}
+
 function getSafeRedirectTarget(raw: string | null): string {
-  const fallback = process.env.NEXT_PUBLIC_SITE_URL || "https://soniteq.ai";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://soniteq.ai";
+  const fallback = getSuccessRedirect(siteUrl);
   if (!raw) return fallback;
 
   let url: URL;
@@ -15,7 +24,9 @@ function getSafeRedirectTarget(raw: string | null): string {
     return fallback;
   }
 
-  if (url.protocol === "kora:") return url.toString();
+  if (url.protocol === "kora:") {
+    return getSuccessRedirect(siteUrl, url.toString());
+  }
 
   const allowlist = (process.env.AUTH_REDIRECT_ALLOWLIST || "")
     .split(",")
@@ -30,6 +41,25 @@ function getSafeRedirectTarget(raw: string | null): string {
 
   const allowedOrigins = new Set([...defaultAllowlist, ...allowlist]);
   return allowedOrigins.has(url.origin) ? url.toString() : fallback;
+}
+
+function normalizeRedirectTarget(
+  type: EmailOtpType,
+  redirectTo: string,
+): string {
+  if (type !== "magiclink") return redirectTo;
+
+  let url: URL;
+  try {
+    url = new URL(redirectTo);
+  } catch {
+    return redirectTo;
+  }
+
+  if (url.pathname !== "/") return redirectTo;
+
+  url.pathname = "/success";
+  return url.toString();
 }
 
 export async function GET(req: Request) {
@@ -47,7 +77,10 @@ export async function GET(req: Request) {
   const type: EmailOtpType = allowedTypes.has(requestedType as EmailOtpType)
     ? (requestedType as EmailOtpType)
     : "magiclink";
-  const redirect_to = getSafeRedirectTarget(url.searchParams.get("redirect_to"));
+  const redirect_to = normalizeRedirectTarget(
+    type,
+    getSafeRedirectTarget(url.searchParams.get("redirect_to")),
+  );
 
   if (!token_hash) {
     return NextResponse.json({ error: "Missing token_hash" }, { status: 400 });

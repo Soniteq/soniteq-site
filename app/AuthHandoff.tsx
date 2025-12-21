@@ -8,21 +8,14 @@ export default function AuthHandoff() {
     const hash = window.location.hash || "";
     if (!hash.includes("access_token=")) return;
 
-    // Optional: only do this on desktop
-    const ua = navigator.userAgent.toLowerCase();
-    const isDesktop =
-      (ua.includes("mac") || ua.includes("win") || ua.includes("linux")) &&
-      !(
-        ua.includes("android") ||
-        ua.includes("iphone") ||
-        ua.includes("ipad") ||
-        ua.includes("ipod") ||
-        ua.includes("mobile")
-      );
+    const params = new URLSearchParams(window.location.search);
+    const rawDeepLink = params.get("deep_link");
+    const deepLink =
+      rawDeepLink && rawDeepLink.startsWith("kora://")
+        ? rawDeepLink
+        : "kora://auth-callback";
 
-    if (isDesktop) {
-      window.location.href = `kora://auth-callback${hash}`;
-    }
+    window.location.href = `${deepLink}${hash}`;
   }, []);
 
   return null;
